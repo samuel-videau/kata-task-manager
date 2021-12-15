@@ -45,13 +45,13 @@ describe('Update the task list', () => {
 
   it('should be able to set status to done', () => {
     taskManager.parse('+ Unit Test');
-    taskManager.parse('x 0');
+    taskManager.parse('x 1');
     assert(taskManager.getTaskList()[0].status === 'done');
   });
 
   it('should be able to set status to to do', () => {
     taskManager.parse('+ Unit Test');
-    taskManager.parse('o 0');
+    taskManager.parse('o 1');
     assert(taskManager.getTaskList()[0].status === 'to do');
   });
 });
