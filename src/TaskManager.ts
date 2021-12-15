@@ -30,8 +30,20 @@ export class TaskManager {
     return this.taskList;
   }
 
+  public displayTaskList(): string {
+    let display = '';
+    this.taskList.forEach(task => {
+      if (display) display += '\n';
+      display += task.id + ' [';
+      if (task.status === 'done') display += 'x] ' + task.description;
+      else display += ' ] ' + task.description;
+    });
+
+    return display;
+  }
+
   private addItem(description: string): void {
-    const id = this.taskList.length;
+    const id = this.taskList.length + 1;
     this.taskList.push({id, description, status: ''});
   }
 
