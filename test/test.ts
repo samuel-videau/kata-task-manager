@@ -1,5 +1,6 @@
 import {assert} from 'chai';
-import {getOperator, getDescription} from "../src/utils/parsing";
+import {getOperator, getContent} from "../src/utils/parsing";
+import {TaskManager} from "../src/TaskManager";
 
 describe('Parsing', () => {
 
@@ -20,36 +21,36 @@ describe('Parsing', () => {
   });
 
   it('should parse description', () => {
-    assert(getDescription('+ Unit Test') === 'Unit Test');
+    assert(getContent('+ Unit Test') === 'Unit Test');
   });
 });
 
 describe('Update the task list', () => {
-  let taskManager;
+  let taskManager: TaskManager;
   beforeEach(() => {
     taskManager = new TaskManager();
   });
 
   it('should be able to add an item', () => {
     taskManager.parse('+ Unit Test');
-    assert(taskManager.getTaskList.length > 0);
+    assert(taskManager.getTaskList().length > 0);
   });
 
   it('should be able to remove an item', () => {
     taskManager.parse('+ Unit Test');
     taskManager.parse('- 0');
-    assert(taskManager.getTaskList.length == 0);
+    assert(taskManager.getTaskList().length == 0);
   });
 
   it('should be able to set status to done', () => {
     taskManager.parse('+ Unit Test');
     taskManager.parse('x 0');
-    assert(taskManager.getTaskList[0].status === 'done');
+    assert(taskManager.getTaskList()[0].status === 'done');
   });
 
   it('should be able to set status to to do', () => {
     taskManager.parse('+ Unit Test');
     taskManager.parse('o 0');
-    assert(taskManager.getTaskList[0].status === 'to do');
+    assert(taskManager.getTaskList()[0].status === 'to do');
   });
 });
