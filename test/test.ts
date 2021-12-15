@@ -1,5 +1,5 @@
 import {assert} from 'chai';
-import {getOperator} from "../src";
+import {getOperator, getDescription} from "../src";
 
 describe('Parsing', () => {
 
@@ -17,5 +17,9 @@ describe('Parsing', () => {
 
   it('should parse o operator', () => {
     assert(getOperator('o Unit Test'));
+  });
+
+  it('should parse description', () => {
+    assert(getDescription('+ Unit Test') === 'Unit Test');
   });
 });
