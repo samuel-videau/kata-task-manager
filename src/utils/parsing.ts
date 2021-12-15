@@ -3,7 +3,7 @@ export function getOperator(expression: string) {
   return operator;
 }
 
-export function getDescription(expression: string) {
+export function getContent(expression: string) {
   const list: string[] = expression.split(' ');
   list.splice(0,1);
   return list.join(' ');
