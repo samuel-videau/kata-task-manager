@@ -4,7 +4,8 @@
   "description": "*Goal: practice TDD and clean architecture by implementing a task manager*",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "tsc --watch",
+    "test": "mocha ./dist/test/test.js"
   },
   "repository": {
     "type": "git",
