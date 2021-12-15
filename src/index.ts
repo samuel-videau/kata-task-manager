@@ -1,5 +1,3 @@
-function main() {
+export function main() {
 
 }
-
-main();
