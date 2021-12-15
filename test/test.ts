@@ -1,5 +1,5 @@
 import {assert} from 'chai';
-import {getOperator, getDescription} from "../src";
+import {getOperator, getDescription} from "../src/utils/parsing";
 
 describe('Parsing', () => {
 
